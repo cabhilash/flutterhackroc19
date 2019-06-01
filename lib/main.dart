@@ -46,14 +46,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
- TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
+ //TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
 
   @override
   Widget build(BuildContext context) {
 
  final emailField = TextField(
           obscureText: false,
-          style: style,
           decoration: InputDecoration(
               contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
               hintText: "Email",
@@ -63,7 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
         final passwordField = TextField(
           obscureText: true,
-          style: style,
           decoration: InputDecoration(
               contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
               hintText: "Password",
@@ -81,8 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () {},
             child: Text("Login",
                 textAlign: TextAlign.center,
-                style: style.copyWith(
-                    color: Colors.white, fontWeight: FontWeight.bold)),
+                
+                    ),
           ),
         );
     // This method is rerun every time setState is called, for instance as done

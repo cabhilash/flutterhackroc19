@@ -96,30 +96,19 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Container(
           color: Colors.white,
-          child: Padding(
-            padding: const EdgeInsets.all(36.0),
-            child: Column(
+          child: Padding( padding: const EdgeInsets.all(36.0),
+          child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(
-                  height: 155.0,
-                  child: Image.asset(
-                    "assets/logo.png",
-                    fit: BoxFit.contain,
-                  ),
-                ),
+                SizedBox( height: 155.0, child: Image.asset("assets/logo.png",fit: BoxFit.contain,),),
                 SizedBox(height: 45.0),
                 emailField,
-                SizedBox(height: 25.0),
+                SizedBox(height: 25.0),  
                 passwordField,
-                SizedBox(
-                  height: 35.0,
-                ),
+                SizedBox(height: 35.0,),
                 loginButon,
-                SizedBox(
-                  height: 15.0,
-                ),
+                SizedBox(height: 15.0,),
               ],
             ),
           ),
@@ -130,21 +119,43 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class SecondScreen extends StatelessWidget {
+  final TextEditingController controller = new TextEditingController();
+  void _showcontent() {
+    
+  }   
+  
   @override
   Widget build(BuildContext context) {
+    void _goBack()
+    {
+      Navigator.pop(context);
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text('Ask Questions - get help'),
       ),
       body: Center(
-        child: RaisedButton(
-          color: Colors.red,
-          child: Text('Go back to First Screen'),
-          onPressed: () {
-            //Use`Navigator` widget to pop oir go back to previous route / screen
-            Navigator.pop(context);
-          },
+        child: Container(color:Colors.teal ,
+        child: Padding( padding: const EdgeInsets.all(12.0),
+        child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new TextField( keyboardType: TextInputType.multiline, maxLines: null,),
+                new RaisedButton(onPressed: _showcontent, color: Colors.blueAccent, 
+                        child: new Text('Ask Question', style: TextStyle(color: Colors.white)), 
+              ),
+              ],
+        
         ),
+        ),
+        ),
+      ),
+       floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.arrow_back),
+        onPressed: _goBack,
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.black,
       ),
     );
   }

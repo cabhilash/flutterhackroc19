@@ -120,12 +120,36 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class SecondScreen extends StatelessWidget {
   final TextEditingController controller = new TextEditingController();
-  void _showcontent() {
-    
-  }   
-  
+ 
   @override
   Widget build(BuildContext context) {
+ 
+  void _showcontent() {
+    showDialog<Null>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return new AlertDialog(
+        title: new Text('Questions for mentors'),
+        content: new SingleChildScrollView(
+          child: new ListBody(
+            children: <Widget>[
+              new Text('We have submitted your question.'),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          new FlatButton(
+            child: new Text('Ok'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
     void _goBack()
     {
       Navigator.pop(context);
@@ -141,7 +165,15 @@ class SecondScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new TextField( keyboardType: TextInputType.multiline, maxLines: null,),
+                new RaisedButton(onPressed: _showcontent, color: Colors.redAccent, 
+                        child: new Text('Show avialable mentors', style: TextStyle(color: Colors.white)), 
+              ),
+              SizedBox(height: 65.0),
+                new TextField( keyboardType: TextInputType.multiline, maxLines: null,
+                decoration: InputDecoration( contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                   hintText: "Ask question to mentor",
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))) ,
+                    ),
                 new RaisedButton(onPressed: _showcontent, color: Colors.blueAccent, 
                         child: new Text('Ask Question', style: TextStyle(color: Colors.white)), 
               ),

@@ -159,7 +159,7 @@ class SecondScreen extends StatelessWidget {
         title: Text('Ask Questions - get help'),
       ),
       body: Center(
-        child: Container(color:Colors.teal ,
+        child: Container(color:Colors.white ,
         child: Padding( padding: const EdgeInsets.all(12.0),
         child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
